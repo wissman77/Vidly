@@ -175,10 +175,57 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011171903170_InitialModel.cs" />
+    <Compile Include="Migrations\202011171903170_InitialModel.Designer.cs">
+      <DependentUpon>202011171903170_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011171913017_AddIsSubscribedToCustomer.cs" />
+    <Compile Include="Migrations\202011171913017_AddIsSubscribedToCustomer.Designer.cs">
+      <DependentUpon>202011171913017_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011171918098_AddMembershipType.cs" />
+    <Compile Include="Migrations\202011171918098_AddMembershipType.Designer.cs">
+      <DependentUpon>202011171918098_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011171920470_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\202011171920470_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>202011171920470_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011171947173_ApplyAnnotationToCustomerName.cs" />
+    <Compile Include="Migrations\202011171947173_ApplyAnnotationToCustomerName.Designer.cs">
+      <DependentUpon>202011171947173_ApplyAnnotationToCustomerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011172019579_AddNameToMembershipType.cs" />
+    <Compile Include="Migrations\202011172019579_AddNameToMembershipType.Designer.cs">
+      <DependentUpon>202011172019579_AddNameToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011172021037_UpdateRecordsForMembershipType.cs" />
+    <Compile Include="Migrations\202011172021037_UpdateRecordsForMembershipType.Designer.cs">
+      <DependentUpon>202011172021037_UpdateRecordsForMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011172030118_AddBirthDateToCustomer.cs" />
+    <Compile Include="Migrations\202011172030118_AddBirthDateToCustomer.Designer.cs">
+      <DependentUpon>202011172030118_AddBirthDateToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011172031110_AddRecordsToCustomerBirthDate.cs" />
+    <Compile Include="Migrations\202011172031110_AddRecordsToCustomerBirthDate.Designer.cs">
+      <DependentUpon>202011172031110_AddRecordsToCustomerBirthDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011172056042_AddedMoviePropsAndGenre.cs" />
+    <Compile Include="Migrations\202011172056042_AddedMoviePropsAndGenre.Designer.cs">
+      <DependentUpon>202011172056042_AddedMoviePropsAndGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011172057067_AddRecordToGenre.cs" />
+    <Compile Include="Migrations\202011172057067_AddRecordToGenre.Designer.cs">
+      <DependentUpon>202011172057067_AddRecordToGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -241,11 +288,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Movies\Random.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
-    <Content Include="Views\Customers\Detail.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -262,6 +309,41 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202011171903170_InitialModel.resx">
+      <DependentUpon>202011171903170_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011171913017_AddIsSubscribedToCustomer.resx">
+      <DependentUpon>202011171913017_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011171918098_AddMembershipType.resx">
+      <DependentUpon>202011171918098_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011171920470_PopulateMembershipTypes.resx">
+      <DependentUpon>202011171920470_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011171947173_ApplyAnnotationToCustomerName.resx">
+      <DependentUpon>202011171947173_ApplyAnnotationToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011172019579_AddNameToMembershipType.resx">
+      <DependentUpon>202011172019579_AddNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011172021037_UpdateRecordsForMembershipType.resx">
+      <DependentUpon>202011172021037_UpdateRecordsForMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011172030118_AddBirthDateToCustomer.resx">
+      <DependentUpon>202011172030118_AddBirthDateToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011172031110_AddRecordsToCustomerBirthDate.resx">
+      <DependentUpon>202011172031110_AddRecordsToCustomerBirthDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011172056042_AddedMoviePropsAndGenre.resx">
+      <DependentUpon>202011172056042_AddedMoviePropsAndGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011172057067_AddRecordToGenre.resx">
+      <DependentUpon>202011172057067_AddRecordToGenre.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

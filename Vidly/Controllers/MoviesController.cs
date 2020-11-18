@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,44 +11,32 @@ namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
-        // GET: Movies
-        public ActionResult Random()
-        {
-            var movie = new Movie() { Name = "Shrek!" };
-            var customers = new List<Customer>
-            {
-                new Customer { Name = "Customer 1"},
-                new Customer { Name = "Customer 2"}
-            };
+        ApplicationDbContext _context;
 
-            var viewModel = new RandomMovieViewModel();
-            viewModel.Movie = movie;
-            viewModel.Customers = customers;
-            
-            return View(viewModel);
+        public MoviesController()
+        {
+            _context = new ApplicationDbContext();
         }
 
-        public ActionResult Edit(int id)
+        protected override void Dispose(bool disposing)
         {
-            return Content("id=" + id);
+            _context.Dispose();
         }
 
         // movies
         public ActionResult Index()
         {
-            List<Movie> movies = new List<Movie>()
-            {
-                new Movie { Id = 1, Name = "Shrek" },
-                new Movie { Id = 2, Name = "Wall-e" }
-            };
-
+            var movies = _context.Movies.Include(m => m.Genre).ToList();
             return View(movies);
         }
 
-        [Route("movies/released/{year:regex(\\d{4})}/{month:regex(\\d{2}):range(1, 12)}")]
-        public ActionResult ByReleaseDate(int year, int month)
+        public ActionResult Details(int Id)
         {
-            return Content(year + "/" + month);
+            var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == Id);
+            if (movie == null)
+                return HttpNotFound();
+
+            return View(movie);
         }
     }
 }
