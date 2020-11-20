@@ -13,7 +13,7 @@ namespace Vidly.Migrations
             INSERT INTO [dbo].[AspNetRoles] ([Id], [Name]) VALUES (N'2318ba12-e414-4a25-b28b-d300440edb55', N'CanManageMovies')
             INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'd39a082d-63ab-4f34-8d70-7757a992ab99', N'2318ba12-e414-4a25-b28b-d300440edb55')
 
-            ")
+            ");
         }
         
         public override void Down()
