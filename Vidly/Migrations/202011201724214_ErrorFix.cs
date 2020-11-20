@@ -12,6 +12,7 @@ namespace Vidly.Migrations
         
         public override void Down()
         {
+            // 
             DropColumn("dbo.AspNetUsers", "Phone");
         }
     }
